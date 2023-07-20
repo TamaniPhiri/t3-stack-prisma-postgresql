@@ -72,7 +72,7 @@ export default function Home() {
           Get all users
         </button>
         <div className="flex w-full flex-col items-center justify-center gap-2">
-          <div className="grid w-full py-2 rounded-md grid-cols-3 justify-between border px-5">
+          <div className="grid w-full grid-cols-3 justify-between rounded-md border px-5 py-2">
             <div>id</div>
             <div>name</div>
             <div>email</div>
@@ -89,16 +89,30 @@ export default function Home() {
           ))}
         </div>
         {/* Get one User*/}
-        <div className="flex w-full gap-3 mt-7 items-center flex-col justify-center">
-          <h1>
-            Get one user
-          </h1>
-          <input
-            className="p-2 placeholder-gray-600 rounded-md"
-            placeholder="Enter user id"
-            value={userId||""}
-            onChange={(e)=>setUserId(String(e.target.value))}
-          />
+        <div className="mt-7 flex w-full flex-col items-center justify-center gap-3">
+          <h1>Get one user</h1>
+          <div>
+            <input
+              className="rounded-md p-2 text-black placeholder-gray-600"
+              placeholder="Enter user id"
+              value={userId || ""}
+              onChange={(e) => setUserId(String(e.target.value))}
+            />
+            <button
+              className="rounded-md bg-green-200 p-2 text-black"
+              onClick={() => fetchOneUser.refetch()}
+            >
+              Search
+            </button>
+          </div>
+          <div className="flex w-full flex-col items-center justify-center gap-2">
+          {fetchOneUser.data&&(
+            <div>
+              <p>Name:{fetchOneUser.data.name}</p>
+              <p>Name:{fetchOneUser.data.email}</p>
+            </div>
+          )}
+        </div>
         </div>
       </div>
     </>

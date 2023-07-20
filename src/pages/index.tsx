@@ -64,6 +64,7 @@ export default function Home() {
   return (
     <>
       <div className="flex h-full min-h-screen flex-col items-center justify-center gap-3 bg-gradient-to-bl from-slate-900 via-slate-700 to-slate-800 px-4 text-white md:px-10">
+        {/* Get all Users */}
         <button
           className="rounded-md bg-green-200 p-2 text-black"
           onClick={() => fetchAllUsers.refetch()}
@@ -86,6 +87,18 @@ export default function Home() {
               <div>{user.email}</div>
             </div>
           ))}
+        </div>
+        {/* Get one User*/}
+        <div className="flex w-full items-center flex-col justify-center">
+          <h1>
+            Get one user
+          </h1>
+          <input
+            className="p-2 placeholder-gray-600 rounded-md"
+            placeholder="Enter user id"
+            value={userId||""}
+            onChange={(e)=>setUserId(String(e.target.value))}
+          />
         </div>
       </div>
     </>

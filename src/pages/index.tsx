@@ -89,7 +89,7 @@ export default function Home() {
           ))}
         </div>
         {/* Get one User*/}
-        <div className="flex w-full items-center flex-col justify-center">
+        <div className="flex w-full gap-3 mt-7 items-center flex-col justify-center">
           <h1>
             Get one user
           </h1>
